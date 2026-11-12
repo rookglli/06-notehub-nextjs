@@ -4,15 +4,11 @@ import {
   dehydrate,
 } from '@tanstack/react-query';
 
-import { connection } from 'next/server';
-
 import { fetchNotes } from '@/lib/api';
 
 import NotesClient from './Notes.client';
 
 export default async function Notes() {
-  await connection();
-
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
